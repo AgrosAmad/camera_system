@@ -1,0 +1,27 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "vcpkg",
+            "displayName": "GCC 13.3.0 x86_64-linux-gnu",
+            "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build",
+                "CMAKE_TOOLCHAIN_FILE": "/home/agroz/Local/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_C_COMPILER": "/usr/bin/gcc",
+                "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_CXX_FLAGS": "-w",  
+                "CMAKE_C_FLAGS": "-w"    
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "normal",
+            "description": "",
+            "displayName": ""
+        }
+    ]
+}

@@ -1,0 +1,954 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "external/X3/libX3.a"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_add_library",
+			"add_library",
+			"add_definitions",
+			"add_compile_definitions",
+			"target_include_directories",
+			"add_subdirectories_recursively",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"/home/agroz/Local/vcpkg/scripts/buildsystems/vcpkg.cmake",
+			"external/X3/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 639,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 30,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 72,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 39,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 53,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 70,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 69,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-w -O3 -DNDEBUG -std=gnu++17   -w -w"
+				},
+				{
+					"backtrace" : 21,
+					"fragment" : "-fopenmp"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "CURRENT_OS=1"
+				},
+				{
+					"backtrace" : 4,
+					"define" : "GLM_ENABLE_EXPERIMENTAL"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/buffers"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/cameras"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/engine"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/geometry"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/geometry/geom2D"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/geometry/geom3D"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/lights"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/materials"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/rendering"
+				},
+				{
+					"backtrace" : 16,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/shaders"
+				},
+				{
+					"backtrace" : 17,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/textures"
+				},
+				{
+					"backtrace" : 18,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/utils"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/utils/cuda"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/usr/local/cuda-12.9/include"
+				},
+				{
+					"backtrace" : 20,
+					"isSystem" : true,
+					"path" : "/home/agroz/Local/vcpkg/installed/x64-linux/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					21
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				3,
+				6,
+				8,
+				10,
+				12,
+				14,
+				16,
+				18,
+				20,
+				22,
+				24,
+				26,
+				28,
+				30,
+				32,
+				34,
+				36,
+				38,
+				40,
+				42,
+				44,
+				46,
+				48,
+				50,
+				52,
+				54,
+				56,
+				58,
+				60,
+				62,
+				64,
+				66,
+				69,
+				71
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-O3 -DNDEBUG -std=c++17 \"--generate-code=arch=compute_86,code=[compute_86,sm_86]\"   -w -w"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "CURRENT_OS=1"
+				},
+				{
+					"backtrace" : 4,
+					"define" : "GLM_ENABLE_EXPERIMENTAL"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/buffers"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/cameras"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/engine"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/geometry"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/geometry/geom2D"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/geometry/geom3D"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/lights"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/materials"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/rendering"
+				},
+				{
+					"backtrace" : 16,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/shaders"
+				},
+				{
+					"backtrace" : 17,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/textures"
+				},
+				{
+					"backtrace" : 18,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/utils"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "/home/agroz/Documents/Projects/research/camera_system/external/X3/src/utils/cuda"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/usr/local/cuda-12.9/include"
+				},
+				{
+					"backtrace" : 20,
+					"isSystem" : true,
+					"path" : "/home/agroz/Local/vcpkg/installed/x64-linux/include"
+				}
+			],
+			"language" : "CUDA",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					2
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				76
+			]
+		}
+	],
+	"id" : "X3::@cf2f558d99207e8f6b28",
+	"name" : "X3",
+	"nameOnDisk" : "libX3.a",
+	"paths" : 
+	{
+		"build" : "external/X3",
+		"source" : "external/X3"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				4,
+				5,
+				7,
+				9,
+				11,
+				13,
+				15,
+				17,
+				19,
+				21,
+				23,
+				25,
+				27,
+				29,
+				31,
+				33,
+				35,
+				37,
+				39,
+				41,
+				43,
+				45,
+				47,
+				49,
+				51,
+				53,
+				55,
+				57,
+				59,
+				61,
+				63,
+				65,
+				67,
+				68,
+				70,
+				72,
+				73,
+				74,
+				75,
+				78,
+				79,
+				80
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				3,
+				6,
+				8,
+				10,
+				12,
+				14,
+				16,
+				18,
+				20,
+				22,
+				24,
+				26,
+				28,
+				30,
+				32,
+				34,
+				36,
+				38,
+				40,
+				42,
+				44,
+				46,
+				48,
+				50,
+				52,
+				54,
+				56,
+				58,
+				60,
+				62,
+				64,
+				66,
+				69,
+				71,
+				76
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				77
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/X3.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/buffers/GLBuffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/buffers/Ubo.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/buffers/Vao.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/buffers/Vao.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/buffers/Vbo.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/cameras/Camera.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/cameras/Camera.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/cameras/CameraFPS.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/cameras/CameraFPS.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/cameras/CameraOrbit.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/cameras/CameraOrbit.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/engine/Engine.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/engine/Engine.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/engine/Gui.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/engine/Gui.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/engine/Input.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/engine/Input.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/engine/Names.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/engine/Names.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/engine/Parameters.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/engine/Parameters.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/engine/Renderable.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/engine/Renderable.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/engine/Scene.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/engine/Scene.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/engine/Viewport.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/engine/Viewport.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom2D/Curve2D.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom2D/Curve2D.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom2D/Grid1D.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom2D/Grid1D.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom2D/Grid2D.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom2D/Grid2D.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom2D/Points2D.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom2D/Points2D.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom2D/Surface.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom2D/Surface.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom3D/Box.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom3D/Box.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom3D/Cube.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom3D/Cube.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom3D/Grid3D.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom3D/Grid3D.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom3D/Mesh.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom3D/Mesh.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom3D/MeshLoader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom3D/MeshLoader.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom3D/Points.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom3D/Points.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/geometry/geom3D/Trapezoid.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/geometry/geom3D/Trapezoid.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/lights/Light.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/lights/Light.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/materials/Material.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/materials/Material.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/materials/Materials.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/materials/Materials.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/rendering/Renderer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/rendering/Renderer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/rendering/RendererFwd.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/rendering/RendererFwd.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/shaders/Shader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/shaders/Shader.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/shaders/Shaders.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/shaders/Shaders.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/shaders/Uniform.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/shaders/Uniform.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/textures/Texture.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/textures/Texture2D.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/textures/Texture2D.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "external/X3/src/textures/Textures.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/textures/Textures.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/utils/MathUtils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/utils/STLUtils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/utils/StringUtils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "external/X3/src/utils/XMath.cu",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/utils/XMath.cuh",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/utils/cuda/helper_cuda.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/utils/cuda/helper_math.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "external/X3/src/utils/cuda/helper_string.h",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}
