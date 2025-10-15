@@ -41,6 +41,8 @@ namespace X3
         Renderable();
         virtual ~Renderable() = default;
 
+        virtual void Kill() {};
+
         // Common methods
         virtual void Select(glm::ivec4 idx) {};
         virtual void Deselect() {};

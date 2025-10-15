@@ -47,6 +47,9 @@ namespace X3
         std::shared_ptr<Scene> mScene; // Objects
         std::shared_ptr<Gui> mUi; // Graphic interface
 
+        // Explicitly manage object destruction
+        void ExplicitKill();
+
         // Main loop
         void Update();
         void Render();

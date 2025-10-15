@@ -2,11 +2,13 @@ cmake_minimum_required(VERSION 3.16)
 
 add_definitions(-w)
 
-# Set main name
+# Set main names
+set(PHX_LIB_DIR "${PROJECT_SOURCE_DIR}/external/silicon/lib64")
+set(PHX_INC_DIR "${PROJECT_SOURCE_DIR}/external/silicon/include")
 set(PROJECT_NAME CAM)
 
 # Initialize
-project(${PROJECT_NAME} LANGUAGES CXX CUDA)
+project(${PROJECT_NAME} LANGUAGES C CXX CUDA)
 
 # Set your architecture here
 set(CUDA_ARCH 86)
@@ -43,6 +45,7 @@ endfunction()
 
 # Call the function on the main directory
 add_subdirectories_recursively("${PROJECT_SOURCE_DIR}/src")
+add_subdirectories_recursively("${PROJECT_SOURCE_DIR}/external/silicon")
 ##############################################################################
 
 # External libraries
@@ -70,3 +73,27 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE GLM_ENABLE_EXPERIMENTAL)
 
 # Link graphical library
 target_link_libraries(${PROJECT_NAME} PUBLIC X3)
+
+target_sources(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/silicon/common.c)
+
+set_source_files_properties(${CMAKE_SOURCE_DIR}/src/silicon/common.c PROPERTIES LANGUAGE C)
+    
+#set_property(SOURCE ${CMAKE_SOURCE_DIR}/src/silicon/common.c PROPERTY LANGUAGE C)
+#set(CMAKE_C_STANDARD 99)
+
+# Linking Silicon SDK
+target_link_libraries(${PROJECT_NAME} PRIVATE
+  "${CMAKE_SOURCE_DIR}/external/silicon/lib64/libphxapi-x86_64.so"
+)
+
+# Make runtime find the .so without LD_LIBRARY_PATH:
+set_target_properties(${PROJECT_NAME} PROPERTIES BUILD_RPATH "${PHX_LIB_DIR}")
+
+# PHX SDK compile-time switches (Linux, 64-bit)
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+  _PHX_LINUX=1
+  _PHX_64BIT=1        
+  _PHX_BUILD_64BIT=1  
+  _GNU_SOURCE         
+)
+

@@ -1,0 +1,1055 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "CAM"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_add_executable",
+			"add_executable",
+			"target_link_libraries",
+			"target_compile_definitions",
+			"target_include_directories",
+			"add_subdirectories_recursively"
+		],
+		"files" : 
+		[
+			"/usr/local/vcpkg/scripts/buildsystems/vcpkg.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 28,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 602,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 59,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 75,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 85,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 72,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 93,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 33,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 9
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 9
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 60,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-O3 -DNDEBUG   -w"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fopenmp"
+				},
+				{
+					"fragment" : "-std=gnu++17"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 6,
+					"define" : "GLM_ENABLE_EXPERIMENTAL"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_GNU_SOURCE"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_PHX_64BIT=1"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_PHX_BUILD_64BIT=1"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_PHX_LINUX=1"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 8,
+					"path" : "/home/metaverse/Desktop/camera_gui/src"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/metaverse/Desktop/camera_gui/src/grabber"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/home/metaverse/Desktop/camera_gui/src/silicon"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn"
+				},
+				{
+					"backtrace" : 16,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/prop-base"
+				},
+				{
+					"backtrace" : 17,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/props"
+				},
+				{
+					"backtrace" : 18,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/text-base"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/tmp"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/tmp/prop-base"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/tmp/props"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/tmp/text-base"
+				},
+				{
+					"backtrace" : 23,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal"
+				},
+				{
+					"backtrace" : 24,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn"
+				},
+				{
+					"backtrace" : 25,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/prop-base"
+				},
+				{
+					"backtrace" : 26,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/props"
+				},
+				{
+					"backtrace" : 27,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/text-base"
+				},
+				{
+					"backtrace" : 28,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/tmp"
+				},
+				{
+					"backtrace" : 29,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/tmp/prop-base"
+				},
+				{
+					"backtrace" : 30,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/tmp/props"
+				},
+				{
+					"backtrace" : 31,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/tmp/text-base"
+				},
+				{
+					"backtrace" : 32,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom"
+				},
+				{
+					"backtrace" : 33,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/prop-base"
+				},
+				{
+					"backtrace" : 35,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/props"
+				},
+				{
+					"backtrace" : 36,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/text-base"
+				},
+				{
+					"backtrace" : 37,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/tmp"
+				},
+				{
+					"backtrace" : 38,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/tmp/prop-base"
+				},
+				{
+					"backtrace" : 39,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/tmp/props"
+				},
+				{
+					"backtrace" : 40,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/tmp/text-base"
+				},
+				{
+					"backtrace" : 41,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/lib64"
+				},
+				{
+					"backtrace" : 42,
+					"path" : "/usr/local/cuda-11.8/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/buffers"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/cameras"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/engine"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/geometry"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/geometry/geom2D"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/geometry/geom3D"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/lights"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/materials"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/rendering"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/shaders"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/textures"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/utils"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/utils/cuda"
+				},
+				{
+					"backtrace" : 42,
+					"isSystem" : true,
+					"path" : "/usr/local/vcpkg/installed/x64-linux/include"
+				},
+				{
+					"backtrace" : 4,
+					"isSystem" : true,
+					"path" : "/home/metaverse/miniconda3/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					4
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				6,
+				8,
+				12
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-O3 -DNDEBUG   -w"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 6,
+					"define" : "GLM_ENABLE_EXPERIMENTAL"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_GNU_SOURCE"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_PHX_64BIT=1"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_PHX_BUILD_64BIT=1"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "_PHX_LINUX=1"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 8,
+					"path" : "/home/metaverse/Desktop/camera_gui/src"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/metaverse/Desktop/camera_gui/src/grabber"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/home/metaverse/Desktop/camera_gui/src/silicon"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn"
+				},
+				{
+					"backtrace" : 16,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/prop-base"
+				},
+				{
+					"backtrace" : 17,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/props"
+				},
+				{
+					"backtrace" : 18,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/text-base"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/tmp"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/tmp/prop-base"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/tmp/props"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/.svn/tmp/text-base"
+				},
+				{
+					"backtrace" : 23,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal"
+				},
+				{
+					"backtrace" : 24,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn"
+				},
+				{
+					"backtrace" : 25,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/prop-base"
+				},
+				{
+					"backtrace" : 26,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/props"
+				},
+				{
+					"backtrace" : 27,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/text-base"
+				},
+				{
+					"backtrace" : 28,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/tmp"
+				},
+				{
+					"backtrace" : 29,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/tmp/prop-base"
+				},
+				{
+					"backtrace" : 30,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/tmp/props"
+				},
+				{
+					"backtrace" : 31,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/.svn/tmp/text-base"
+				},
+				{
+					"backtrace" : 32,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom"
+				},
+				{
+					"backtrace" : 33,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/prop-base"
+				},
+				{
+					"backtrace" : 35,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/props"
+				},
+				{
+					"backtrace" : 36,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/text-base"
+				},
+				{
+					"backtrace" : 37,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/tmp"
+				},
+				{
+					"backtrace" : 38,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/tmp/prop-base"
+				},
+				{
+					"backtrace" : 39,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/tmp/props"
+				},
+				{
+					"backtrace" : 40,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/include/gtest/internal/custom/.svn/tmp/text-base"
+				},
+				{
+					"backtrace" : 41,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/silicon/lib64"
+				},
+				{
+					"backtrace" : 42,
+					"path" : "/usr/local/cuda-11.8/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/buffers"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/cameras"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/engine"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/geometry"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/geometry/geom2D"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/geometry/geom3D"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/lights"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/materials"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/rendering"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/shaders"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/textures"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/utils"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/utils/cuda"
+				},
+				{
+					"backtrace" : 42,
+					"isSystem" : true,
+					"path" : "/usr/local/vcpkg/installed/x64-linux/include"
+				},
+				{
+					"backtrace" : 4,
+					"isSystem" : true,
+					"path" : "/home/metaverse/miniconda3/include"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				10
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "X3::@cf2f558d99207e8f6b28"
+		}
+	],
+	"id" : "CAM::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-O3 -DNDEBUG",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-L/usr/local/cuda-11.8/targets/x86_64-linux/lib/stubs",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-L/usr/local/cuda-11.8/targets/x86_64-linux/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/external/silicon/lib64:/home/metaverse/Desktop/camera_gui/external/silicon/lib64",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libglfw3.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libglad.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "external/X3/libX3.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "../../../external/silicon/lib64/libphxapi-x86_64.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLX.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libOpenGL.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libassimp.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libpolyclipping.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libpoly2tri.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libminizip.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libz.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libpugixml.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libkubazip.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLX.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libOpenGL.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libglad.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libglm.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libimgui.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/vcpkg/installed/x64-linux/lib/libglfw3.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/librt.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/gcc/x86_64-linux-gnu/11/libgomp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libpthread.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lcudadevrt",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lcudart_static",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "CAM",
+	"nameOnDisk" : "CAM",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				6,
+				8,
+				10,
+				12
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1,
+				3,
+				4,
+				5,
+				7,
+				9,
+				11,
+				13
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/CamGui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/CamGui.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/CamObj.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/CamObj.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/CamTex.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/grabber/FrameHandle.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/grabber/PhxGrabber.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/grabber/PhxGrabber.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/silicon/Stopwatch.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "src/silicon/common.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/silicon/common.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/silicon/phx_core.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/silicon/phx_core.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "EXECUTABLE"
+}

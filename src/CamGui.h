@@ -1,15 +1,7 @@
 #pragma once
 
-// STL
-#include <iostream>
-#include <cstdlib>
-#include <random>
-#include <chrono>
-#include <ctime>
-#include <omp.h>
-
-// X3
-#include <X3.h>
+// Project
+#include <CamObj.h>
 
 class CamGui
 {
@@ -24,5 +16,8 @@ class CamGui
     private:
         // X3 Engine
         std::shared_ptr<X3::Engine> mEngine;
+
+        // Camera obj
+        std::shared_ptr<X3::geom::CamObj> mCamObj;
 };
 

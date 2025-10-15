@@ -44,6 +44,8 @@ namespace X3
 		void Clear();
 		void Load();
 
+		void ExplicitKill();
+
 		// Save/Load
 		void CallbackLoader(std::function<void(std::shared_ptr<Scene>)> c) { mLoader = c; }
 		void SaveBinary(const std::string& fn) const;

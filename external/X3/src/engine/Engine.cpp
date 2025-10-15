@@ -200,7 +200,7 @@ namespace X3
         Parameters& params = Parameters::Inst();
         Input& input = Input::Inst();
 
-        while (!glfwWindowShouldClose(mWindow))
+        while (!glfwWindowShouldClose(mWindow) && !input.KeyPressed(GLFW_KEY_Q))
         {
             // Profiler
             Parameters& params = Parameters::Inst();
@@ -227,7 +227,15 @@ namespace X3
 
         glfwDestroyWindow(mWindow);
         glfwTerminate();
+        ExplicitKill();
         exit(EXIT_SUCCESS);
+
+    }
+
+    void Engine::ExplicitKill()
+    {
+        // Handles explicit object destructors
+        mScene->ExplicitKill();
     }
 
     std::shared_ptr<Viewport> Engine::AddViewport(const std::string& name)

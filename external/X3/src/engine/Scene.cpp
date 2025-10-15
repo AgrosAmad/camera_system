@@ -75,6 +75,11 @@ namespace X3
 
     }
 
+    void Scene::ExplicitKill()
+    {
+        for(auto& r: mRenderables) r->Kill();
+    }
+
     void Scene::Load()
     {
         if (mLoader) mLoader(shared_from_this());
