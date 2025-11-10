@@ -1726,8 +1726,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/metaverse/Desktop/camera_gui/out/build/cam",
-		"source" : "/home/metaverse/Desktop/camera_gui"
+		"build" : "/home/metaverse/Desktop/camera_system/out/build/cam",
+		"source" : "/home/metaverse/Desktop/camera_system"
 	},
 	"version" : 
 	{

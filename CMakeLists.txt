@@ -28,6 +28,8 @@ file(GLOB_RECURSE SOURCES_LIB RELATIVE "${PROJECT_SOURCE_DIR}" "src/*.*")
 add_executable(${PROJECT_NAME} ${SOURCES_LIB})
 set_target_properties(${PROJECT_NAME} PROPERTIES CUDA_ARCHITECTURES "${CUDA_ARCH}")
 
+target_compile_definitions(${PROJECT_NAME} PRIVATE PROJECT_ROOT="${CMAKE_SOURCE_DIR}")
+
 # Headers
 ##############################################################################
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/src")

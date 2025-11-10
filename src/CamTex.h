@@ -19,7 +19,7 @@ public:
         if (!id) glGenTextures(1, &id);
 
         glBindTexture(GL_TEXTURE_2D, id);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -32,7 +32,6 @@ public:
         glTexImage2D(GL_TEXTURE_2D, 0, GL_R8, w, h, 0, GL_RED, GL_UNSIGNED_BYTE, nullptr);
     }
 
-    // Update from a PhxGrabber::Frame (Mono8, tightly packed). 
     // autoRelease=true: call f.release() after upload so the SDK can reuse the buffer.
     bool update(const PhxGrabber::Frame& f, bool autoRelease = true) {
         if (!f.data || f.width == 0 || f.height == 0) return false;
@@ -48,7 +47,6 @@ public:
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
         // In our PhxGrabber wrapper, buffers are Mono8 and tightly packed: bytes == w*h.
-        // If stride, we add a repack path like in previous class.
         glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height,
                         GL_RED, GL_UNSIGNED_BYTE, f.data);
 

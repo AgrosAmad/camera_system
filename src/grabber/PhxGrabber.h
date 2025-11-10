@@ -3,21 +3,19 @@
 #include <functional>
 #include <string>
 #include <stdexcept>
-#include <cstring>   // memset
-#include <fstream>   // for std::ofstream
-#include <iostream>  // for std::cerr, std::cout
-
+#include <cstring>  
+#include <fstream> 
+#include <iostream> 
 
 #include "phx_core.h"
 #include "common.h"
 
-// Wrapper for SDK.
 // Lifecycle: Init -> Open -> Start -> (loop: GetBuffer -> use -> frame.release()) -> Close
 class PhxGrabber {
     public:
     // Init-time options (no display; just capture)
     struct Options {
-        const char*  configFile = nullptr;       // .cam/.cfg or nullptr
+        std::string  configFile = std::string(PROJECT_ROOT) + "/cam_config.pcf";       // .cam/.cfg or nullptr
         ui32         boardNumber = 1;
         ui32         channelNumber = 1;
         etParamValue configMode = PHX_CONFIG_NORMAL;
@@ -30,11 +28,15 @@ class PhxGrabber {
         const void* data = nullptr;
         ui32 width = 0;
         ui32 height = 0;
-        ui32 bytes = 0;          // width*height for 8-bit mono
-        ui64 index = 0;          // running counter
-        std::function<void()> release; // must be called once (no-op if empty)
+        ui32 bytes = 0;          // total bytes in buffer
+        ui32 strideBytes = 0;    // bytes per line (important if padding)
+        ui32 bitsPerPixel = 8;   // 8/10/12/16 raw
+        etParamValue srcCol = static_cast<etParamValue>(0); // PHX_CAM_SRC_*?
+        ui64 index = 0;
+        std::function<void()> release;
         explicit operator bool() const { return data != nullptr; }
     };
+
 
     PhxGrabber();
     ~PhxGrabber();
@@ -47,9 +49,9 @@ class PhxGrabber {
     void Close();                      // stops (if needed) and closes
 
     // Stats (debug)
-    ui32 bufferCount() const      { return m_ctx.dwBufferCount; }
-    ui32 fifoOverflowCount() const{ return m_ctx.dwFifoOverflowCount; }
-    ui32 syncLossCount() const    { return m_ctx.dwSyncLossCount; }
+    ui32 bufferCount() const      { return mCtx.dwBufferCount; }
+    ui32 fifoOverflowCount() const{ return mCtx.dwFifoOverflowCount; }
+    ui32 syncLossCount() const    { return mCtx.dwSyncLossCount; }
 
     bool SaveFrameRaw(const Frame& f, const std::string& path, bool autoRelease) {
     if (!f.data || f.width == 0 || f.height == 0 || f.bytes == 0) {
@@ -95,13 +97,13 @@ bool SaveLatestRaw(const std::string& path) {
     void ensureCxpReady();
     void applyCxpRegsIfAny();
 
-    Options        m_opt{};
-    CPhxCore       m_channel{};
-    CallbackContext m_ctx{};
-    tCxpRegisters   m_cxpRegs{}; // parsed from config file if provided
+    Options        mOpt{};
+    CPhxCore       mChannel{};
+    CallbackContext mCtx{};
+    tCxpRegisters   mCxpRegs{}; // parsed from config file if provided
 
-    bool m_opened  = false;
-    bool m_started = false;
-    ui32 m_prevBufferCount = 0;
-    ui64 m_frameIndex = 0;
+    bool mOpened  = false;
+    bool mStarted = false;
+    ui32 mPrevBufferCount = 0;
+    ui64 mFrameIndex = 0;
 };

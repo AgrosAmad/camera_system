@@ -76,21 +76,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "CAM::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-CAM-Release-a0c972d59b2c53ebe9b5.json",
+					"jsonFile" : "target-CAM-Release-73ddaf2e43afd80feb69.json",
 					"name" : "CAM",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "Demo::@cf2f558d99207e8f6b28",
-					"jsonFile" : "target-Demo-Release-4edf080381ebf12f80ee.json",
+					"jsonFile" : "target-Demo-Release-d3fa17538bb388c3b165.json",
 					"name" : "Demo",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "X3::@cf2f558d99207e8f6b28",
-					"jsonFile" : "target-X3-Release-4aaa0d06a59d7963b5d8.json",
+					"jsonFile" : "target-X3-Release-f1ac7a38b3103dbd7512.json",
 					"name" : "X3",
 					"projectIndex" : 1
 				}
@@ -100,8 +100,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/metaverse/Desktop/camera_gui/out/build/cam",
-		"source" : "/home/metaverse/Desktop/camera_gui"
+		"build" : "/home/metaverse/Desktop/camera_system/out/build/cam",
+		"source" : "/home/metaverse/Desktop/camera_system"
 	},
 	"version" : 
 	{

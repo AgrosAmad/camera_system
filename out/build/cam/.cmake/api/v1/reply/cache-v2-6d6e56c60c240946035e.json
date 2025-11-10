@@ -23,7 +23,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/metaverse/Desktop/camera_gui/out/build/cam"
+			"value" : "/home/metaverse/Desktop/camera_system/out/build/cam"
 		},
 		{
 			"name" : "CAM_IS_TOP_LEVEL",
@@ -47,7 +47,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/metaverse/Desktop/camera_gui"
+			"value" : "/home/metaverse/Desktop/camera_system"
 		},
 		{
 			"name" : "CMAKE_ADDR2LINE",
@@ -103,7 +103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/metaverse/Desktop/camera_gui/out/build/cam"
+			"value" : "/home/metaverse/Desktop/camera_system/out/build/cam"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -763,7 +763,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/metaverse/Desktop/camera_gui"
+			"value" : "/home/metaverse/Desktop/camera_system"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -775,7 +775,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/metaverse/Desktop/camera_gui/out/install/cam"
+			"value" : "/home/metaverse/Desktop/camera_system/out/install/cam"
 		},
 		{
 			"name" : "CMAKE_INSTALL_SO_NO_EXE",
@@ -2643,7 +2643,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/metaverse/Desktop/camera_gui/out/build/cam/external/X3"
+			"value" : "/home/metaverse/Desktop/camera_system/out/build/cam/external/X3"
 		},
 		{
 			"name" : "X3_IS_TOP_LEVEL",
@@ -2667,7 +2667,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/metaverse/Desktop/camera_gui/external/X3"
+			"value" : "/home/metaverse/Desktop/camera_system/external/X3"
 		},
 		{
 			"name" : "X_VCPKG_APPLOCAL_DEPS_INSTALL",

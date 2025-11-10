@@ -96,59 +96,59 @@
 			[
 				{
 					"backtrace" : 6,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/buffers"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/buffers"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/cameras"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/cameras"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/engine"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/engine"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/geometry"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/geometry"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/geometry/geom2D"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/geometry/geom2D"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/geometry/geom3D"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/geometry/geom3D"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/lights"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/lights"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/materials"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/materials"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/rendering"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/rendering"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/shaders"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/shaders"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/textures"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/textures"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/utils"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/utils"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/metaverse/Desktop/camera_gui/external/X3/src/utils/cuda"
+					"path" : "/home/metaverse/Desktop/camera_system/external/X3/src/utils/cuda"
 				},
 				{
 					"backtrace" : 3,

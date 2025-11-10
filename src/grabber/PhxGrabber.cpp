@@ -3,7 +3,7 @@
 #include <sstream>
 
 PhxGrabber::PhxGrabber() {
-  std::memset(&m_cxpRegs, 0, sizeof(m_cxpRegs));
+  std::memset(&mCxpRegs, 0, sizeof(mCxpRegs));
 }
 
 PhxGrabber::~PhxGrabber() {
@@ -17,127 +17,141 @@ void PhxGrabber::Init()
 }
 
 void PhxGrabber::Init(const Options& opt) {
-  m_opt = opt;
-  std::memset(&m_cxpRegs, 0, sizeof(m_cxpRegs));
-  if (m_opt.configFile) {
+  mOpt = opt;
+  std::memset(&mCxpRegs, 0, sizeof(mCxpRegs));
+  if (mOpt.configFile.size() > 0) {
     // If the same config file contains CXP register block, parse it now.
     // Failure isn’t fatal unless we depend on start/stop regs.
-    PhxCommonParseCxpRegs(m_opt.configFile, &m_cxpRegs); // returns 0 on success
+    PhxCommonParseCxpRegs(mOpt.configFile.c_str(), &mCxpRegs); // returns 0 on success
   }
 }
 
 void PhxGrabber::Open() {
-  if (m_opened) return;
+  if (mOpened) return;
 
-  m_channel.Open(m_opt.configFile, m_opt.boardNumber, m_opt.channelNumber,
-                 m_opt.configMode, m_opt.acquisitionBufferCount);
+  mChannel.Open(mOpt.configFile.c_str(), mOpt.boardNumber, mOpt.channelNumber,
+                 mOpt.configMode, mOpt.acquisitionBufferCount);
 
-  m_ctx = {};                      // reset context
-  m_ctx.PhxChannel = &m_channel;
-  m_channel.SetInterruptCallbackFunction(&PhxGrabber::InterruptThunk, &m_ctx);
+  mCtx = {};                      // reset context
+  mCtx.PhxChannel = &mChannel;
+  mChannel.SetInterruptCallbackFunction(&PhxGrabber::InterruptThunk, &mCtx);
 
   enableInterrupts();              // ALWAYS re-enable on every Open
   ensureCxpReady();                // re-discovery each time
   applyCxpRegsIfAny();             // push regs (ROI/start/stop) if present
 
-  m_prevBufferCount = 0;
-  m_frameIndex = 0;
-  m_opened = true;
+  mPrevBufferCount = 0;
+  mFrameIndex = 0;
+  mOpened = true;
 }
 
 void PhxGrabber::Start() {
-  if (!m_opened || m_started) return;
+  if (!mOpened || mStarted) return;
 
   // fresh counters so GetBuffer() doesn’t compare to stale values
-  m_prevBufferCount = 0;
-  m_ctx.dwBufferCount = 0;
-  m_ctx.dwFifoOverflowCount = 0;
-  m_ctx.dwSyncLossCount = 0;
+  mPrevBufferCount = 0;
+  mCtx.dwBufferCount = 0;
+  mCtx.dwFifoOverflowCount = 0;
+  mCtx.dwSyncLossCount = 0;
 
-  m_channel.AcquisitionStart();
-  if (m_cxpRegs.dwAcqStartAddress) {
-    m_channel.CxpCameraWrite(m_cxpRegs.dwAcqStartAddress, m_cxpRegs.dwAcqStartValue);
+  mChannel.AcquisitionStart();
+  if (mCxpRegs.dwAcqStartAddress) {
+    mChannel.CxpCameraWrite(mCxpRegs.dwAcqStartAddress, mCxpRegs.dwAcqStartValue);
   }
-  m_started = true;
+  mStarted = true;
 }
 
-PhxGrabber::Frame PhxGrabber::GetBuffer() {
-  Frame out{};
-
-  if (!m_opened || !m_started) return out;
-
-  // Determine how many new frames arrived since last call
-  ui32 now = m_ctx.dwBufferCount;
-  i32 avail = static_cast<i32>(now - m_prevBufferCount);
-  if (avail <= 0) {
-    return out; // nothing new
+  static inline ui32 AlignUp(ui32 x, ui32 a) {
+      return (a > 1) ? ( (x + (a - 1)) & ~(a - 1) ) : x;
   }
 
-  // Get buffer geometry (monochrome/raw assumption same as sdk sample)
-  ui32 w = 0, h = 0;
-  m_channel.PhxParameterGet(PHX_BUF_DST_XLENGTH, &w);
-  m_channel.PhxParameterGet(PHX_BUF_DST_YLENGTH, &h);
-  const ui32 bytes = w * h;
+  PhxGrabber::Frame PhxGrabber::GetBuffer() {
+      Frame out{};
+      if (!mOpened || !mStarted) return out;
 
-  // Drain older frames; keep only the newest
-  while ((--avail) > 0) {
-    m_channel.BufferRelease();
+      const ui32 now = mCtx.dwBufferCount;
+      const i32 avail = static_cast<i32>(now - mPrevBufferCount);
+      if (avail <= 0) return out;
+
+      // --- Query geometry / format ---
+      ui32 w = 0, h = 0;
+      ui32 srcDepthBits = 0;
+      etParamValue srcCol = static_cast<etParamValue>(0);
+      ui32 dstAlignBytes = 1; // default if not set/zero
+
+      mChannel.PhxParameterGet(PHX_BUF_DST_XLENGTH, &w);
+      mChannel.PhxParameterGet(PHX_BUF_DST_YLENGTH, &h);
+      mChannel.PhxParameterGet(PHX_CAM_SRC_DEPTH,  &srcDepthBits); // 8/10/12/16
+      mChannel.PhxParameterGet(PHX_CAM_SRC_COL,    &srcCol);
+      mChannel.PhxParameterGet(PHX_DST_ALIGNMENT,  &dstAlignBytes); // row alignment in bytes
+
+      // Drain older frames; keep only newest
+      for (i32 toDrop = avail - 1; toDrop > 0; --toDrop) {
+          mChannel.BufferRelease();
+      }
+
+      void* buf = mChannel.BufferGet();
+      ++mFrameIndex;
+
+      // Compute bytes-per-pixel for the *destination* buffer we get.
+      const ui32 pxBytes = (srcDepthBits == 0 || srcDepthBits <= 8) ? 1u : 2u;
+
+      // Derive stride using destination alignment
+      if (dstAlignBytes == 0) dstAlignBytes = 1;
+      const ui32 bytesPerLine = w * pxBytes;
+      const ui32 strideBytes  = AlignUp(bytesPerLine, dstAlignBytes);
+      const ui32 totalBytes   = strideBytes * h;
+
+      out.data         = buf;
+      out.width        = w;
+      out.height       = h;
+      out.strideBytes  = strideBytes;
+      out.bitsPerPixel = (srcDepthBits == 0) ? 8u : srcDepthBits;
+      out.srcCol       = srcCol;
+      out.bytes        = totalBytes;
+      out.index        = mFrameIndex;
+
+      out.release = [this]() { this->mChannel.BufferRelease(); };
+
+      mPrevBufferCount = now;
+      return out;
   }
 
-  // Now the next BufferGet() is the newest frame
-  void* buf = m_channel.BufferGet();
-  ++m_frameIndex;
-
-  // Fill out Frame and give the caller a release() they must call.
-  out.data   = buf;
-  out.width  = w;
-  out.height = h;
-  out.bytes  = bytes;
-  out.index  = m_frameIndex;
-  out.release = [this]() {
-    // Safe to call exactly once per acquired frame
-    this->m_channel.BufferRelease();
-  };
-
-  // Update our count to the latest we returned
-  m_prevBufferCount = now;
-  return out;
-}
 
 void PhxGrabber::Close() {
-  if (!m_opened) return;
+  if (!mOpened) return;
 
-  // 1) Stop camera streaming (if we know how)
-  if (m_started && m_cxpRegs.dwAcqStopAddress) {
-    m_channel.CxpCameraWrite(m_cxpRegs.dwAcqStopAddress, m_cxpRegs.dwAcqStopValue);
+  // 1) Stop camera streaming
+  if (mStarted && mCxpRegs.dwAcqStopAddress) {
+    mChannel.CxpCameraWrite(mCxpRegs.dwAcqStopAddress, mCxpRegs.dwAcqStopValue);
   }
 
   // 2) Stop the grabber acquisition
-  if (m_started) {
-    m_channel.AcquisitionStop();
-    m_started = false;
+  if (mStarted) {
+    mChannel.AcquisitionStop();
+    mStarted = false;
   }
 
   // 3) Disable interrupts, clear callback (prevents stale firing on reopen)
   try {
     ui32 zero = 0;
-    m_channel.PhxParameterSet(PHX_INTRPT_SET, zero);
+    mChannel.PhxParameterSet(PHX_INTRPT_SET, zero);
   } catch (...) {}
   try {
-    m_channel.SetInterruptCallbackFunction(nullptr, nullptr);
+    mChannel.SetInterruptCallbackFunction(nullptr, nullptr);
   } catch (...) {}
 
   // 4) Sanity check: if we still own a buffer, release it
-  try { m_channel.BufferRelease(); } catch (...) {}
+  try { mChannel.BufferRelease(); } catch (...) {}
 
   // 5) Close the channel
-  m_channel.Close();
-  m_opened = false;
+  mChannel.Close();
+  mOpened = false;
 
   // 6) Reset counters/context after close
-  std::memset(&m_ctx, 0, sizeof(m_ctx));
-  m_prevBufferCount = 0;
-  m_frameIndex = 0;
+  std::memset(&mCtx, 0, sizeof(mCtx));
+  mPrevBufferCount = 0;
+  mFrameIndex = 0;
 }
 
 // ----- helpers -----
@@ -166,20 +180,20 @@ void PHX_C_CALL PhxGrabber::InterruptThunk(ui32 mask, void* ctx) {
 void PhxGrabber::enableInterrupts() {
   ui32 intr = PHX_INTRPT_FIFO_OVERFLOW;
   etParamValue camType{};
-  m_channel.PhxParameterGet(PHX_CAM_TYPE, &camType);
+  mChannel.PhxParameterGet(PHX_CAM_TYPE, &camType);
   if (camType == PHX_CAM_AREASCAN_ROI) intr |= PHX_INTRPT_SYNC_LOST;
-  m_channel.PhxParameterSet(PHX_INTRPT_SET, intr);
+  mChannel.PhxParameterSet(PHX_INTRPT_SET, intr);
 }
 
 void PhxGrabber::ensureCxpReady() {
   tFlag isCxp{};
-  if (PHX_OK != PhxCommonIsCxp(m_channel.GetHandle(), &isCxp)) {
+  if (PHX_OK != PhxCommonIsCxp(mChannel.GetHandle(), &isCxp)) {
     throw std::runtime_error("Failed retrieving Camera Interface Type.");
   }
   if (!isCxp) return;
 
   ui32 discovered = 0;
-  PhxCommonGetCxpDiscoveryStatus(m_channel.GetHandle(), 10, &discovered);
+  PhxCommonGetCxpDiscoveryStatus(mChannel.GetHandle(), 10, &discovered);
   if (!discovered) {
     throw std::runtime_error("Failed to discover CXP camera.");
   }
@@ -187,8 +201,8 @@ void PhxGrabber::ensureCxpReady() {
 
 void PhxGrabber::applyCxpRegsIfAny() {
   // Push whatever we parsed; OK if all zeros
-  if (PHX_OK != PhxCommonUpdateCxpRegs(m_channel.GetHandle(), &m_cxpRegs)) {
-    if (m_cxpRegs.dwAcqStartAddress || m_cxpRegs.dwAcqStopAddress) {
+  if (PHX_OK != PhxCommonUpdateCxpRegs(mChannel.GetHandle(), &mCxpRegs)) {
+    if (mCxpRegs.dwAcqStartAddress || mCxpRegs.dwAcqStopAddress) {
       throw std::runtime_error("Failed updating Camera CXP registers.");
     }
   }
