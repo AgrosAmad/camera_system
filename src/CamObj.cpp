@@ -1,107 +1,225 @@
-#include <CamObj.h>
+#include "CamObj.h"
+#include <chrono>
+#include <cstring>   // std::memcpy
+#include <iostream>  // debugging
 
-CamCont::CamCont(const int& channel)
+using namespace std::chrono_literals;
+
+Framer::Framer(const int channel, const int board)
 {
-    // Inits Phx Grabber
+    // --- Create and configure grabber ---
     PhxGrabber::Options opt;
-    opt.channelNumber = channel;
+    opt.channelNumber = static_cast<ui32>(channel);
+    // adapt these if needed:
+    opt.boardNumber   = static_cast<ui32>(board);
+    opt.configMode    = PHX_CONFIG_NORMAL;
+    opt.acquisitionBufferCount = 10;
+
     mGrabber = std::make_shared<PhxGrabber>();
     mGrabber->Init(opt);
     mGrabber->Open();
-    mGrabber->Start();
-    
-    // Init texture
-    mTex = std::make_shared<CamTex>();
+    mGrabber->Start();   // non-streaming; poll in own thread
 
-    // Init demosaic
+    // GL helpers 
+    mTex = std::make_shared<CamTex>();
     mDem = std::make_shared<DemosaicFbo>();
     mDem->Init();
+
+    // Worker
+    mRunning = true;
+    mWorker = std::thread(&Framer::WorkerLoop, this);
 }
 
-CamCont::~CamCont()
+Framer::~Framer()
 {
-    mGrabber->Close();
+    Kill();
 }
 
-void CamCont::Draw()
+void Framer::Kill()
 {
-    ImGui::Image((ImTextureID)(intptr_t)mDem->ColorTexture(), ImVec2(mTex->w,  mTex->h));
+    bool expected = true;
+    if (mRunning.compare_exchange_strong(expected, false)) {
+        // Stop worker
+        if (mWorker.joinable())
+            mWorker.join();
+
+        // Stop & close grabber
+        if (mGrabber) {
+            try {
+                mGrabber->Close();
+            } catch (...) {
+                // swallow in destructor
+            }
+        }
+    }
 }
 
-void CamCont::Update(const CamProp& prop)
+void Framer::WorkerLoop()
+{
+    // This runs on background thread.
+    while (mRunning) {
+        PhxGrabber::Frame f = mGrabber->GetBuffer(); // non-blocking
+        if (f) {
+            OnFrame(f); // copies to CPU buffer & releases SDK buffer
+        } else {
+            // No new frame yet
+            std::this_thread::sleep_for(1ms);
+        }
+    }
+}
+
+void Framer::OnFrame(const PhxGrabber::Frame& f)
 {
 
-    mProp = prop;
 
-    PhxGrabber::Frame frame = mGrabber->GetBuffer();
-    if(frame) mTex->update(frame);
+    // Worker thread: copy into mImgBuf (CPU) & release Phoenix buffer.
+    if (!f.data || f.width == 0 || f.height == 0 || f.bytes == 0) {
+        if (f.release) f.release();
+        return;
+    }
 
+    const int w   = static_cast<int>(f.width);
+    const int h   = static_cast<int>(f.height);
+    const int bpp = static_cast<int>(f.bitsPerPixel);
+    const int stride = static_cast<int>(f.strideBytes); // bytes per line
+
+    // Allocate CPU buffer large enough for full stride * height
+    const size_t needed = static_cast<size_t>(stride) * static_cast<size_t>(h);
+
+    {
+        std::lock_guard<std::mutex> lock(mImgMutex);
+
+        if (mImgBuf.size() != needed)
+            mImgBuf.resize(needed);
+
+        // Copy full buffer
+        std::memcpy(mImgBuf.data(), f.data, needed);
+
+        mImgW      = w;
+        mImgH      = h;
+        mImgStride = stride;
+        mImgBpp    = bpp;
+
+        // Increment version so render thread knows a new frame is ready
+        mImgVersion.fetch_add(1, std::memory_order_release);
+    }
+
+    // Return buffer to SDK
+    if (f.release) f.release();
+}
+
+void Framer::Update(const CamProp& prop)
+{
+    // Called from render/UI thread *with current GL context*.
+    mProp = prop; // store latest prop used for demosaic
+
+    const uint64_t v = mImgVersion.load(std::memory_order_acquire);
+    if (v == mLastUsedVersion) {
+        // No new frame since we last updated
+        return;
+    }
+
+    // Snapshot CPU buffer under lock
+    std::vector<uint8_t> localBuf;
+    int w = 0, h = 0, stride = 0, bpp = 0;
+    {
+        std::lock_guard<std::mutex> lock(mImgMutex);
+        if (mImgBuf.empty() || mImgW == 0 || mImgH == 0) {
+            return;
+        }
+        localBuf = mImgBuf; // copy (small overhead, but keeps life simple)
+        w        = mImgW;
+        h        = mImgH;
+        stride   = mImgStride;
+        bpp      = mImgBpp;
+    }
+    mLastUsedVersion = v;
+
+    // For now, we assume Bayer8 (1 byte/px).
+    if (bpp != 8) {
+        // TODO: repack logic for >8bpp.
+        std::cerr << "[Framer] bpp=" << bpp << " not yet handled in texture upload\n";
+        return;
+    }
+
+    // Upload to GPU as R8 grayscale (Bayer mosaic)
+    mTex->updateRaw(localBuf.data(), w, h, stride);
+
+    // Run demosaic into RGB FBO
     auto pat = static_cast<BayerPattern>(mProp.patternIdx);
-
-    // After CamTex update:
-    mDem->Render(mTex->id,  mTex->w,  mTex->h,
-                (BayerPattern)pat, mProp.black, mProp.wbR, mProp.wbG, mProp.wbB, mProp.gamma);
+    mDem->Render(
+        mTex->id,
+        mTex->w,
+        mTex->h,
+        pat,
+        mProp.black,
+        mProp.wbR,
+        mProp.wbG,
+        mProp.wbB,
+        mProp.gamma
+    );
 }
 
-void CamCont::Kill()
+GLuint Framer::Texture(int &w, int& h) const
 {
-    mGrabber->Close();
+    // Texture dimensions
+    w = mTex->w;
+    h = mTex->h;
+
+    // Final demosaiced color texture
+    return mDem ? mDem->ColorTexture() : 0;
 }
 
-GLuint CamCont::Texture() const
+bool Framer::GetLatestRaw(uint8_t*& data, int& w, int& h, int& strideBytes)
 {
-    return mDem->ColorTexture();
+    std::lock_guard<std::mutex> lock(mImgMutex);
+    if (mImgBuf.empty() || mImgW == 0 || mImgH == 0)
+        return false;
+
+    data        = mImgBuf.data();
+    w           = mImgW;
+    h           = mImgH;
+    strideBytes = mImgStride;
+    return true;
 }
+
 
 namespace X3
 {
     namespace geom
     {
-        CamObj::CamObj()
+        Camera::Camera(const std::string& name, const int& channel, const int& board)
         {
-            mName = "Cameras";
-
-            // Inits cameras (with correct channel)
-            mCam1 = std::make_shared<CamCont>();
-            mCam2 = std::make_shared<CamCont>(3);
+            // Inits camera and framer
+            mFramer = std::make_shared<Framer>(channel, board);
+            mName = name;
         }
 
-        CamObj::~CamObj()
+        Camera::~Camera()
         {
-            mCam1->Kill();
-            mCam2->Kill();
+
         }
 
-        void CamObj::RenderUi()
+        void Camera::RenderUi()
         {
 
-            // White balance / tone (tweak live)
+            // Gets latest texture
+            auto image = mFramer->Texture(mWidth, mHeight);
+
+            
             ImGui::Text("Name: %s", mName.c_str());
-            // let the user pick the pattern(s); these ints drive the next update pass
-            ImGui::Combo("Bayer pattern Cam1", &MasterProp.patternIdx, "RGGB\0BGGR\0GRBG\0GBRG\0");
-            ImGui::SliderFloat("WB R", &MasterProp.wbR, 0.5f, 4.0f);
-            ImGui::SliderFloat("WB G", &MasterProp.wbG, 0.5f, 4.0f);
-            ImGui::SliderFloat("WB B", &MasterProp.wbB, 0.5f, 4.0f);
-            ImGui::SliderFloat("Black", &MasterProp.black, 0.0f, 0.05f);
-            ImGui::SliderFloat("Gamma", &MasterProp.gamma, 1.0f, 3.0f);
-
-            // show the color textures produced in UpdateCameras()
-            mCam1->Draw();
-            mCam2->Draw();
-
+            ImGui::Text("Size: %i, %i", mWidth, mHeight);
+            ImGui::Image((ImTextureID)(intptr_t)image, ImVec2(512, 512));
         }
 
-        void CamObj::Update()
+        void Camera::Kill()
         {
-            mCam1->Update(MasterProp);
-            mCam2->Update(MasterProp);
+            mFramer->Kill();
         }
 
-        void CamObj::Kill()
+        void Camera::Update()
         {
-            printf("safely closed \n");
-            mCam1->Kill();
-            mCam2->Kill();
+            mFramer->Update(mCamProp);
         }
-    } // namespace geom
-} // namespace X3
+    }
+}

@@ -18,6 +18,6 @@ class CamGui
         std::shared_ptr<X3::Engine> mEngine;
 
         // Camera obj
-        std::shared_ptr<X3::geom::CamObj> mCamObj;
+        std::shared_ptr<X3::geom::Camera> mCamObj;
 };
 

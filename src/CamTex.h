@@ -56,25 +56,38 @@ public:
 
     // Raw upload (no PhxGrabber::Frame)
     void updateRaw(const uint8_t* src, int width, int height, int srcStrideBytes) {
-        if (width != w || height != h) init(width, height);
+        if (width != w || height != h) {
+            init(width, height);
+        }
+
         glBindTexture(GL_TEXTURE_2D, id);
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
-        if (srcStrideBytes == width) {
-            glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height,
-                            GL_RED, GL_UNSIGNED_BYTE, src);
+        const int bytesPerPixel = 1;                 // Bayer8 / Mono8
+        const int rowBytes      = width * bytesPerPixel;
+
+        if (srcStrideBytes == rowBytes) {
+            // Tightly packed → direct upload
+            glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0,
+                            width, height,
+                            GL_RED, GL_UNSIGNED_BYTE,
+                            src);
         } else {
-            // repack rows to tight buffer (Mono8 = 1 byte/px)
-            std::vector<uint8_t> tight(size_t(width) * size_t(height));
+            // Repack rows: copy only used pixels from each stride
+            std::vector<uint8_t> tight(size_t(rowBytes) * size_t(height));
             for (int y = 0; y < height; ++y) {
-                std::memcpy(&tight[size_t(y) * size_t(width)],
+                std::memcpy(&tight[size_t(y) * size_t(rowBytes)],
                             src + size_t(y) * size_t(srcStrideBytes),
-                            size_t(width));
+                            size_t(rowBytes));
             }
-            glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height,
-                            GL_RED, GL_UNSIGNED_BYTE, tight.data());
+
+            glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0,
+                            width, height,
+                            GL_RED, GL_UNSIGNED_BYTE,
+                            tight.data());
         }
     }
+
 
     void destroy() {
         if (id) { glDeleteTextures(1, &id); id = 0; }

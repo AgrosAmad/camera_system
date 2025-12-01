@@ -172,4 +172,5 @@ void DemosaicFbo::Render(GLuint srcTex, int w, int h,
 
     glUseProgram(0);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
 }

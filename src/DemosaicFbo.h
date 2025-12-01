@@ -1,6 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 #include <cstdint>
+#include <iostream>
 
 
 // SDK config file states GBRG but it seems it is actually RGGB!

@@ -7,7 +7,7 @@ CamGui::CamGui()
 
     // Inits camera object and add it to scene
     auto scene = mEngine->GetScene();
-    mCamObj = std::make_shared<X3::geom::CamObj>();
+    mCamObj = std::make_shared<X3::geom::Camera>("camera", 1);
     scene->Add(mCamObj);
 }
 
